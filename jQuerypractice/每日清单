@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>我的每日清单</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <style>
+        body{
+            font-size:20px;
+            background-color:rgb(231,224,214);
+        }
+        h1{
+            text-align:center;
+        }
+        .notSelected{
+            margin-right:5px;
+            width:15px;
+            cursor:pointer;
+
+        }
+        .selected{
+            display:none;
+            cursor:pointer;
+        }
+        #list{
+            width:400px;
+            margin:0 auto;
+        }
+        .detail{
+            border-radius:10px;
+            padding:10px;
+            margin:10px;
+            border:1px solid rgb(190,184,184);
+        }
+        #inputValue{
+            border-radius:10px;
+            width:375px;
+            margin:10px;
+            line-height:40px;
+            outline:none;
+        }
+        #addButton{
+            border-radius:8px;
+            color:white;
+            background-color:rgb(104,104,196);
+            width:100px;
+            height:30px;
+            margin-left:280px;
+            outline:none;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <h1>我的每日清单</h1>
+    <div id="list">
+
+        <div class="detail"><img src="https://static1.bcjiaoyu.com/f6c85f806f731822dd16c38c3dc3dfce_g.png-202x200" class="notSelected">学习jquery Level2</div>
+        <div class="detail"><img src="https://static1.bcjiaoyu.com/f6c85f806f731822dd16c38c3dc3dfce_g.png-202x200" class="notSelected">给爸爸打电话</div>
+        <div class="detail"><img src="https://static1.bcjiaoyu.com/f6c85f806f731822dd16c38c3dc3dfce_g.png-202x200" class="notSelected">写论文 part3</div>
+        
+        <div id="add">
+        <input type="text" placeholder="+添加任务" id="inputValue">
+        <input type="button" value="确认添加" id="addButton">
+        </div>
+    
+    
+    </div>
+    <script>
+        $(function(){
+            //这个函数表示在点击圆圈的时候，把圆圈图片换成打钩的图片，并把字体变成灰色，中间划上删除线
+            function line(){
+                $(".notSelected").on('click',function(){
+                    $(this).attr("src","https://static1.bcjiaoyu.com/70d43381cb948313baa40dabd2e6235c_v.png-200x200"); //这里用的图片2 
+                    $(this).parent().css({
+                        "text-decoration":"line-through",
+                        "color":"grey"
+                    });
+                });
+            }
+            line();
+
+            $("#addButton").on('click',function(){
+                var value = $("#inputValue").val();  //点击时获取输入框中的内容
+                var $checkCircle = $('<img src="https://static1.bcjiaoyu.com/f6c85f806f731822dd16c38c3dc3dfce_g.png-202x200" class="notSelected">')   //创建空圆圈对象，用图片1
+                var $newDiv = $('<div class="detail"></div>').text(value);   //创建新div元素，并在其中加上刚刚获取的输入框中的value值
+                $newDiv = $newDiv.prepend($checkCircle); //在刚才的新div对象前面加上空圆圈
+                $("#add").before($newDiv); //把加上了空圆圈的新div对象插入到id为add的元素之前，也就是输入框之前
+                $("#inputValue").val(null);    //这一步把输入框中的值清零，方便我们再一次输入任务
+                line();     //把可以点击圆圈可以划线的函数绑定在这个新元素上，这样子新元素也就可以划去了
+            });
+        });
+    
+    </script>
+</body>
+</html>
