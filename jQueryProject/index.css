@@ -132,3 +132,96 @@ ul{
     height: 40px;
     cursor: pointer;
 }
+
+
+
+#middle{
+    margin: 250px;
+}
+
+#leftText{
+    width: 300px;
+    height:400px;
+    overflow: hidden;
+    left: 20%;
+
+}
+
+#rightImg{
+    width: 320px;
+    display: block;
+    position: absolute;
+    right: 350px;
+    top: 800px;
+}
+
+#name{
+    font-weight:bold;
+    font-size: 40px;
+    position: absolute;
+    right: 375px;
+    top: 770px;
+    z-index: 2;
+}
+
+#view{
+    width: 150px;
+    height: 40px;
+    border: 1px solid black;
+    margin-top: -150px;
+    text-align: center;
+    line-height: 40px;
+}
+
+
+#detailImg{
+    width: 90%;
+    margin: 150px auto;
+
+}
+
+#detailImg img{
+    float: left;
+    cursor: pointer;
+    width: 25%;
+    z-index: 0;
+    /* transition可以让元素的css的属性值在一定的时间区间内平滑地过渡
+    在这里我们规定它应用于所有的CSS选择器的元素(all)，然后设置过渡时间为0.5s */
+    transition: all 0.5s; 
+}
+
+#detailImg img:hover{
+ /*transform规定元素变化的形态，在这里就是长宽都变成原来的1.2倍
+  */
+    transform: scale(1.2,1.2);
+}
+
+#contact{
+    font-weight: bold;
+    width: 15%;
+    margin: 100px auto;
+}
+#contact input{
+    display: block;
+    position: relative;
+    left: -120px;
+    width: 400px;
+    height: 40px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#bottom{
+    height: 150px;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    margin-top:50px;
+    text-align: center;
+}
+#bottom ul li{
+    display: inline;
+    margin: 20px;
+    position: relative;
+    top: 20px;
+}
