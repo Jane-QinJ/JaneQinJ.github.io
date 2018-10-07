@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--首先，我们给class为category的a标签绑定了一个鼠标滑过事件
+我们想要达到的目标是什么呢？鼠标滑过一个a标签的时候把它下面的内容展开
+同时是不是还要隐藏之前滑过的a标签下面的类目？要不然滑一次全都显示出来了
+所以，我们当前鼠标停留的那个a标签可以用$(this)获取得到
+然后，我们用$(this).next()获取它的下一个兄弟元素，也就是跟a标签同一列的ul元素
+
+现在我们在ul元素上运用.show()方法，它就会从原来的隐藏状态变成现实状态
+当然了，子元素也会跟着一起出现
+不仅要处理让当前a标签下的ul元素出现的问题，还要让之前滑过的a标签下面的ul列表隐藏起来
+我们在刚才ul匹配结果集对象上找它的父元素，也就是用.parent()方法
+找到了class为level1的父元素
+
+然后使用.siblings()方法，记住，这个方法是选择不包含自身的其他兄弟元素
+所以这里会选择除了$(this)之外的另外两个class为level1的li元素噢
+对这两个li元素，我们再选择一下它的class为category的子元素，也就是a标签  	
+在这个子元素上我们再调用一下.next()，这下又找到了.level2的ul元素	
+
+我们在另外两个ul上应用.hide()，这样之前不管是显示了哪个ul，都会被隐藏的~
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>jQueryProject</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <style>
+        body{
+            background:url(https://static1.bcjiaoyu.com/c2452c0fd9a6e8dfbe15f78a619afc20_x.jpg-4000x3000);
+            background-size: cover;
+        }
+        .name{
+            font-size: 35px;
+            font-style: bold;
+            text-align:center;
+        }
+        a{
+            text-decoration: none;
+            color:rgb(100, 86, 86);
+        }
+        .category{
+            color:black;
+        }
+        .level2{
+            display:none;
+        }
+        div#wrapper {
+            overflow:auto;
+        }
+        div#sidebar{
+            color: #666666;
+            font-size: 20px;
+        }
+        div#sidebar{
+            float:left;
+            width:400px;
+            background-color: #E8E8E8;
+        }
+        div#sidebar p{
+            padding: 10px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+   <div id="wrapper">
+       <div id = "sidebar">
+           <div class="name">橙旭园便利店</div>
+            <ul class="menu">
+                <li class="level1">
+                    <a href="#" class="category">美食</a> 
+                    <ul class="level2">
+                        <li><a href="#">牛奶</a></li>
+                        <li><a href="#">柚子茶</a></li>
+                        <li><a href="#">酸梅汤</a></li>
+                        <li><a href="#">火腿</a></li>
+                        <li><a href="#">香肠</a></li>
+                        <li><a href="#">雪蛤</a></li>
+                        <li><a href="#">蜂蜜</a></li>
+                        <li><a href="#">红酒</a></li>
+                    
+                    </ul>   
+
+                </li>
+                <li class="level1">
+                    <a href="#" class="category">生鲜</a>
+                    <ul class = "level2">
+                        <li><a href="#">麻辣小龙虾哦</a></li>     
+                        <li><a href="#">三文鱼</a></li>
+                        <li><a href="#">咸鸭蛋</a></li>
+                        <li><a href="#">牛肉</a></li>
+                        <li><a href="#">百香果</a></li>
+                        <li><a href="#">桃子</a></li>
+                        <li><a href="#">山竹</a></li>
+                        <li><a href="#">榴莲</a></li>
+                    </ul>
+                </li>
+                <li class = "level1">
+                    <a href="#" class="category">零食</a>
+                    <ul class= "level2">
+                        <li><a href="#">甜甜圈</a></li>
+                        <li><a href="#">芒果干</a></li>
+                        <li><a href="#">费列罗</a></li>
+                        <li><a href="#">果冻</a></li>
+                        <li><a href="#">冰皮月饼</a></li>
+                        <li><a href="#">薯片</a></li>
+                        <li><a href="#">豆干</a></li>
+                        <li><a href="#">开心果</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+   </div>
+   <script>
+       $(".category").on('mouseover',function(){
+           $(this).next().show()
+           .parent().siblings().children("a")
+           .next().hide();
+       });
+   </script>
+</body>
+</html>
