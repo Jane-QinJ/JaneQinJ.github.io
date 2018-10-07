@@ -1,0 +1,261 @@
+body {
+    color: #333;
+    font: 10.6px "Helvetica", "Lucida Grande", "Microsoft YaHei", sans-serif;
+    position: relative;
+    margin: 0;
+}
+img {
+    max-width: 100%;
+}
+/*前面三个，这些都是为了去除浏览器的默认样式*/
+*{
+    padding:0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+
+.slider, .slider-pics img, .slider-circle{
+    height: 600px;
+}
+.slider{
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slider-pics, .slider-nav, .slider-pre, .slider-next{
+    position: absolute;
+    z-index:8;
+}
+.slider-pics img{
+    border:none;
+}
+.slider-circle{
+    position: relative;
+}
+.slider-nav{
+    margin-left:-51px;
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+}
+.slider-nav li{
+    background: #eee9e9;
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 2px;
+    overflow: hidden;
+    text-align:center;
+    display: inline-block;
+    height: 10px;
+    line-height: 18px;
+    width: 10px;
+}
+.slider-nav .slider-item-selected{
+    background: white;
+}
+.slider-button a{
+    /* 前三个值和rgb值是一样的，最后一个值表示透明度 */
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    text-align: center;
+    display: block;
+    font-size: 22px;
+    width: 28px;
+    height: 62px;
+    line-height: 62px;
+    margin-top: -31px;
+    position: absolute;
+    top: 50%;
+    
+}
+.slider-button a:hover{
+    background: rgba(0,0,0,0.4);
+}
+
+.slider-next{
+    /* left属性：定义一个定位元素的左边距边界与其包含块左边界之间的偏移（即离包含块左边界的距离）
+    在这为100% 即包含块长度为：它的左边界与包含块左边界之间的距离 */
+    left: 100%;
+    /* 正数时，代表定位元素与外部的边距。负数时，它会朝向本应远离的左边框靠近 */
+    margin-left: -27px;
+}
+
+#main section {
+    width: 100%;
+    margin-bottom: 40px;
+}
+/* width的设置是为了缩放屏幕时图片也缩放 */
+.wrap {
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto;
+}
+/* 主体大图片撑满父容器 */
+#mainCampaign  img {
+    width: 100%;
+    display: block;
+    max-width: 1024px;
+    /* 父元素适应图片高度 */
+    height: auto;
+    position: relative;
+
+    opacity: 0.7;
+}
+#mainCampaign  img:hover{
+    opacity: 1;
+}
+/* 并列的四张图片，设置边距，按水平线排列 */
+#main ul {
+    margin: 0 auto;
+    display: flex;
+    /* 使溢出的子元素换行 */
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+/* 使元素水平排列，并具有响应宽度和高度 */
+#mainCampaign .fourPanels li {
+    width: 23.5%;
+    max-width: 245px;
+    height: auto;
+}
+
+#mainCampaign ul li {
+    margin-bottom: 20px;
+    /* 2%是23.5*4后剩余 */
+    margin: 20px 2% 0 0;
+}
+/* 解决图片不能并列的问题，去掉右外边距 */
+#mainCampaign ul li:last-child {
+    margin-right: 0;
+}
+
+/* 3 文字的布局 */
+#mainCampaign li a {
+    display: block;
+    padding: 0;
+    min-height: 60px;
+    position: relative;
+}
+
+#mainCampaign .title{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,.5);
+    font-weight: bold;
+    width: 90%;
+    color: #fff;
+}
+/* 更多 */
+#mainCampaign .more {
+    margin-top: 0;
+}
+.more{
+    font-size: 14px;
+    position: relative;
+    padding-right: 20px;
+    text-align: right;
+    width: 90%;
+    max-width:1024px;
+    margin: -38px auto 1em;
+}
+/* 小箭头 */
+.more a::after{
+    display:block;
+    position:absolute;
+    top:50%;
+    right:10px;
+    width: 7px;
+    height: 7px;
+    margin: -5px -5px 0 0;
+    border-top: solid 1px #7f7f7f;
+    border-right: solid 1px #7f7f7f;
+    transform: rotate(45deg);
+    content: "";
+}
+
+/*产品标题*/
+#main h1{
+    font-size: 18px;
+    margin: 0 auto 1em;
+    line-height: 1;
+    color: #333;
+    width: 90%;
+    max-width: 1024px;
+}
+ /*女性榜样 榜单 */
+ #main #product ul {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#main #product li{
+    margin: 0 2% 5px 0;
+    width:15%;
+    box-sizing: border-box;
+    font-size: 12px;
+    padding-right: 2px;
+    background-size: auto 70px;
+    background-repeat: no-repeat;
+    /* 定义背景图的起始位置 */
+    background-position: 8px center;
+}
+/* 定位问题，span在a内定位 */
+#main #product li a{
+    display: block;
+    padding: 0 2px 0 55px;
+    /* 改变默认大小 */
+    position:relative;
+    min-height: 60px;
+}
+#main #product li:nth-child(6n){
+    margin-right: 0;
+}
+#main #product li span{
+    position:absolute;
+    top: 40%;
+    left: 60%;
+}
+
+#detailImg{
+    width: 90%;
+    margin: 150px auto;
+
+}
+
+#detailImg img{
+    float: left;
+    cursor: pointer;
+    width: 25%;
+    z-index: 2;
+    /* transition可以让元素的css的属性值在一定的时间区间内平滑地过渡
+    在这里我们规定它应用于所有的CSS选择器的元素(all)，然后设置过渡时间为0.5s */
+    transition: all 0.5s; 
+}
+
+#detailImg img:hover{
+    /*transform规定元素变化的形态，在这里就是长宽都变成原来的1.2倍
+     */
+       transform: scale(1.2,1.2);
+   }
+
+#misc{
+    padding: 15px 0;
+    background: #ebebeb;
+    display: block;
+}
+
+#misc .content{
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1024px;
+    display: block;
+    text-align: center;
+}
