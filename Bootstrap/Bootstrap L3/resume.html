@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Resume</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- 自己引入一个外部样式表 -->
+    <link rel="stylesheet" type="text/css" href="sample3.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <!-- 此简历为两栏设计 -->
+    <div class="container">
+        <div class="row">
+            <!-- 左边栏内容 -->
+            <div class="col-md-3">
+            <!-- 三个面板： 个人信息面板、个人技能面板、联系面板 -->
+                <!-- 个人信息面板 -->
+                <div class="panel panel-default">  <!--全局样式 默认-->
+                    <div class="panel-heading">
+                        个人信息
+                    </div>
+                    <div class="panel-body">
+                        <img alt="pic" class="img-responsive img-rounded img-thubnail" 
+                        src="https://resource.bcgame-face2face.haorenao.cn/bs/imagecxy1.jpg">
+                    <p class="text-center text-primary">XXX</p>
+                    <address>
+                        <span class="glyphicon glyphicon-home" title="通信地址">
+                            <abbr title="Address">北京市东二环</abbr>
+                        </span><br>
+                        <span class="glyphicon glyphicon-file" title="邮政编码">
+                            <abbr title="PostaCode">邮政编码:</abbr>000000
+                        </span><br>
+                        <span class="glyphicon glyphicon-phone" title="联系电话">
+                            <abbr title="Phone">联系电话</abbr>88888888
+                        </span><br>
+                        <span class="glyphicon glyphicon-envelope" title="电子邮箱">
+                            <a href="mailto s131@mail.com">mail11@mail.com</a>
+                        </span>
+                    </address>            
+                    </div>
+                </div>
+                <!-- 个人技能面板 -->
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        个人技能
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="text-primary">HTML5</span>
+                            </div>
+                            <div class="col-md-9">
+                                <!-- striped使进度条拥有条纹样式 -->
+                                <div class="progress progress-striped">
+                                    <!-- active 使进度条有动态效果 -->
+                                    <div class="progress-bar progress-bar-success active"
+                                    style="width:85%">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="text-primary">CSS</span>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-info active" 
+                                     style="width:95%">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <span class="text-primary">JavaScript</span>
+                            </div>
+                            <div class="col-md-9">
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-striped active "
+                                    style="width:85%">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 联系面板 -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        联系我
+                    </div>
+                    <div class="panel-body">
+                        <!-- 1 先改变排列方式 创建水平表单 -->
+                        <div class="form-horizontal">
+                            <!-- 2 之后将标签和控件分为一组 -->
+                            <div class="form-group">
+                                <!-- 3 向标签添加 class .control-label，输入框添加class="form-control" -->
+                                <label class="col-md-4 control-label" >电子邮箱</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="e-mail" placeholder="e-mail">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">姓名</label>
+                                <div class="col-md-8">
+                                    <input class="form-control" type="e-mail" placeholder="name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-4 col-md-8">
+                                    <button class="btn btn-default pull-right2" type="submit">发送</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 右边栏内容 -->
+            <div class="col-md-9">
+                <!-- 巨幕效果 -->
+                <div class="jumbotron">
+                    <p class="text-primary small">
+                        参与10多个网站的前端设计工作<br>
+                        熟练掌握<code>HTML5</code>、<code>Bootstrap</code>、<code>JQuery</code>等技术<br>
+                        有良好的编程习惯，以及程序错误控制和解决能力。<br>
+                    </p>
+                </div>
+                <!-- 序号5 面板内容 -->
+                <div class="panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            项目展示
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="https://static1.bcjiaoyu.com/ce233062feb4c2cd77827781734a104c_c.jpg-600x542" alt="Canvas">
+                            </a>
+                            <div class="caption text-center">
+                                <p><a href="https://www.canvasflip.com/">CanvasFlip</a></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="https://static1.bcjiaoyu.com/91c248b613bac3f725169fc14299b079_o.jpg-1200x720" alt=""> 
+                            </a>
+                            <div class="caption text-center">
+                                <p><a href="#">柯基</a></p>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="#" class="thumbnail">
+                                <img src="https://static1.bcjiaoyu.com/1b0d7be142827fe160dfb8eb25d3367f_e.jpg-658x439" alt="">
+                            </a>
+                            <div class="caption text-center">
+                                <p><a href="#">海边</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 序号6 面板 -->
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            工作经验
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        2006-2010
+                                    </div>
+                                    <div class="col-sm-4">
+                                        XXX公司
+                                    </div>
+                                    <div>
+                                        前端工程师
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        2010-2013
+                                    </div>
+                                    <div class="col-sm-4">
+                                        XXX公司
+                                    </div>
+                                    <div>
+                                        前端工程师
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        2013-2018
+                                    </div>
+                                    <div class="col-sm-4">
+                                        XXX公司
+                                    </div>
+                                    <div >
+                                        前端工程师
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 序号7 面板 -->
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            教育背景
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped">
+                            <tr>
+                                <td>
+                                    时间
+                                </td>
+                                <td>
+                                    学校
+                                </td>
+                                <td>
+                                    专业
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    时间
+                                </td>
+                                <td>
+                                    学校
+                                </td>
+                                <td>
+                                    专业
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    时间
+                                </td>
+                                <td>
+                                    学校
+                                </td>
+                                <td>
+                                    专业
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+</body>
+</html>
