@@ -1,0 +1,35 @@
+<!-- bootstrap里的“容器“” -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        .col-md-6{
+            border: 1px solid #000;
+            background-color: #ACEAF9;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- container会根据内容的宽度，自动调整两边的宽度以居中 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">你好，<strong>我是container</strong></div>
+            <div class="col-md-6">欢迎来橙旭园学习</div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <!-- container-fluid则是会占据父元素100%的宽度，这里父元素是<body>,所以占满屏幕 -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">你好，<strong>我是container-fluid</strong></div>
+            <div class="col-md-6">欢迎来橙旭园学习</div>
+        </div>
+    </div>
+</body>
+</html>
