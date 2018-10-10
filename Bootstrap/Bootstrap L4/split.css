@@ -1,0 +1,128 @@
+body{
+    font: 400 15px sas-serif;
+    line-height: 1.8;
+    color: #818181;
+}
+/* 导航栏样式 */
+.navbar-header a{
+    position: relative;
+    bottom: 10px;
+    margin-bottom: 0;
+}
+
+.navbar{
+    margin-bottom: 0;
+    background-color: #006AD5;
+    z-index: 9999;
+    border: 0;
+    font-size: 16px;
+    line-height: 1.42857143;
+    letter-spacing: 4px;
+    border-radius: 0;
+}
+/* 图片和导航栏的字设为白色，important级别最高 */
+.navbar li a, .navbar .navbar-brand{
+    color: #fff !important;
+}
+/*.navbar-nav li.active a 选择的是当前选中的列表项，将其改为白底蓝字  */
+.navbar-nav li a:hover,.navbar-nav li.active a{
+    color: #006AD5 !important;
+    background-color: #fff !important;
+}
+
+/* 第一屏 */
+.jumbotron{
+    font-family: Montserrat, sans-serif;
+    background-color: #006AD5;
+    color: #FFF;
+    padding: 100px 25px;
+}
+/* 第二屏、第三屏 */
+/* 2,5背景为灰 */
+.bg-grey{
+    background-color: #f6f6f6;
+}
+
+.container-fluid{
+    padding: 60px 50px;
+}
+/* 第2,3屏中的图案 */
+.logo{
+    color: #006AD5;
+    font-size: 200px;
+}
+/* 第五屏 */
+.thumbnail img{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
+/* 第五屏 */
+/* 用全局样式覆盖默认样式 */
+#portfolio a:link, a:visited{
+    color: #000;
+    text-decoration: none;
+}
+#portfolio a:hover{
+    color: #000;
+}
+
+/* 轮播图 轮播导航的按钮*/
+.carousel-control span{
+    color: #006AD5;
+}
+/* 轮播图小按钮边框变蓝 */
+.carousel-indicators li{
+    border-color: #006AD5;
+}
+/* 轮播图小按钮背景变蓝 */
+.carousel-indicators li.active{
+    background-color: #006AD5;
+}
+
+/* 第六屏 */
+.item h4{
+    font-size: 19px;
+    line-height:1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 0;
+}
+
+.panel{
+    border: 1px solid #006AD5;
+    transition: box-shadow 0.5s;
+    height: 480px;
+}
+
+.panel-footer h3{
+    font-size: 32px;
+}
+.panel-body{
+    height: 160px;
+}
+
+.panel-footer h4{
+    color: #aaa;
+    font-size: 14px;
+}
+
+.panel:hover{
+    box-shadow: 5px 0 40px rgba(0,0,0,.2);
+}
+
+.panel-footer button:link{
+    color: #000000;
+}
+
+.panel-footer button:hover{
+    border:1px solid #006AD5;
+    opacity: 0.8;
+}
+
+.panel-heading{
+    color: #fff !important;
+    background-color: #006AD5;
+    padding: 25px;
+    border-bottom: 1px solid transparent;
+}
