@@ -1,0 +1,44 @@
+<!-- 标签页插件 Tab  -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tab</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">   
+            <!-- 选择框 -->
+            <!-- 通常是在列表上激活插件，因为列表可以起到类似“菜单”的效果 -->
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active">
+                    <a href="#1" data-toggle="tab">1</a>
+                </li>
+                <li>
+                    <a href="#2" data-toggle="tab">2</a>
+                </li>
+            </ul>
+            <!-- 内容 -->
+            <!-- 导航所对应的内容要用共同容器包裹，并设置class="tab-content" -->
+            <div class="tab-content">
+                <!-- 动物 折叠插件 -->
+                <!-- 每个内容的属性要设置class="tab-pane" -->
+                <div id="1" class="tab-pane">
+                    <div class="col-md-4 col-sm-12">
+                        页面1
+                    </div>
+                </div>
+                <div id="2" class="tab-pane">
+                    <div class="col-md-4 col-sm-12">
+                        页面2
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

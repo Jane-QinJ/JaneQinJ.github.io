@@ -1,0 +1,27 @@
+<!-- 工具提示插件 tooltip -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>tooltip</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h2>工具提示插件</h2>
+    <!-- data-toggle="tooltip"是激活插件 -->
+    <!-- data-placement="top"表示信息显示位置，还可以设置为bottom、left、right -->
+    <!-- title="橙旭园"就是显示“橙旭园” -->
+    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="橙旭园"> 
+        橙旭园欢迎你
+    </button>
+    <!-- 这个插件不是纯css插件，所以要在后面加上<script>里的方法调用它 -->
+    <script>
+        $(function(){
+            $("[data-toggle='tooltip']").tooltip();
+        });
+    </script>
+</body>
+</html>

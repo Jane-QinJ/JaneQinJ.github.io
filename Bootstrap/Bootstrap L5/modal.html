@@ -1,0 +1,44 @@
+<!-- 模态框插件 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <h3 class=>陈斌</h3><br>
+                <!-- 启用模态框 -->
+                <!-- 在<a>标签上加入data-toggle="modal"激活模态框插件，用data-target=“#id”指定目标 -->
+                    <a data-toggle="modal" data-target="#modalOne">
+                        <img src="https://static1.bcjiaoyu.com/9176a142fd2656ecb68324951ed05ce3_o.png-500x500" class="img-circle team">
+                    </a>
+                    <!-- 模态框 -->
+                    <!-- 模态框的内容 -->
+                    <!-- 模态框包含的选择器有三层，容器class="modal-dialog"、class="modal-content"，还有一层是具体的内容 -->
+                <div class="modal fade" id="modalOne">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- 内容部分我们只指定了class="modal-body"，class="modal-footer"，这些属性是可选的 -->
+                            <div class="modal-body">
+                                前微软员工，橙旭园儿童程序创始人
+                                从业经验超过15年，Robocup 2017 金牌教练
+                            </div>
+                            <div class="modal-footer">
+                                <!-- 如果要关闭模态框，我们要加上一个<button>，并写上data-dismiss="modal"属性 -->
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">
+                                    关闭
+                                </button>
+                            </div>
+                        </div>   <!--modal-content-->
+                    </div>       <!--modal-dialog-->
+                </div>           <!--modal-->
+            </div>               <!--col-md-6-->
+        </div>                   <!--row-->
+    </div>                       <!--container-->
+</body>
+</html>
