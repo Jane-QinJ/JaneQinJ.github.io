@@ -1,0 +1,35 @@
+<!-- onchange事件
+输入框字段被改变onchange事件
+就是一个文本输入框中，如果框内内容有变化的话，就是一个输入框字段被改变onchange事件
+再比如：下拉列表框中，当你选择一个选项时，也是字段被改变onchange事件
+包含有onchange事件的标签在发生改变时会触发绑定的处理函数。 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Onchange</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <!-- 首先编写HTML页面 -->
+    <input id="t1" type="text">
+    <p id="p1"></p>
+    <script>
+    // 处理函数
+    function a(){
+        var para = document.getElementById("p1");
+    // 获取到的元素.innerHTML="要写入的内容或别的HTML标签元素";
+// innerHTML是HTML标签的属性，成对出现的标签大多数都有这个属性
+// 这个属性表示开始标签和结束标签之间的内容，不包括标签本身
+        para.innerHTML="输入成功";
+}
+    var t = document.getElementById("t1");
+    // 绑定事件监听函数
+    // 注意：这里将事件作为一个参数，是使用不加on的事件名称
+    t.addEventListener('change',a,false);
+    </script>
+</body>
+</html>
