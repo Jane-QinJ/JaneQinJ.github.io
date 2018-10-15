@@ -2,7 +2,10 @@
 输入框字段被改变onchange事件
 就是一个文本输入框中，如果框内内容有变化的话，就是一个输入框字段被改变onchange事件
 再比如：下拉列表框中，当你选择一个选项时，也是字段被改变onchange事件
-包含有onchange事件的标签在发生改变时会触发绑定的处理函数。 -->
+包含有onchange事件的标签在发生改变时会触发绑定的处理函数。 
+当光标还没有离开文本框时，页面不发生任何改变
+而当光标离开文本框之后，段落元素的内容就变成了“输入成功"
+这是因为触发了onchange事件-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,15 +23,20 @@
     <script>
     // 处理函数
     function a(){
+        // 先获取到段落元素
         var para = document.getElementById("p1");
     // 获取到的元素.innerHTML="要写入的内容或别的HTML标签元素";
-// innerHTML是HTML标签的属性，成对出现的标签大多数都有这个属性
-// 这个属性表示开始标签和结束标签之间的内容，不包括标签本身
+    // innerHTML是HTML标签的属性，成对出现的标签大多数都有这个属性
+    // 这个属性表示开始标签和结束标签之间的内容，不包括标签本身
+    
+    // 然后填写 段落元素的内容
         para.innerHTML="输入成功";
 }
+    // 获取文本框元素
     var t = document.getElementById("t1");
     // 绑定事件监听函数
     // 注意：这里将事件作为一个参数，是使用不加on的事件名称
+    // 将元素、事件、函数三者绑定起来
     t.addEventListener('change',a,false);
     </script>
 </body>
