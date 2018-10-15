@@ -1,0 +1,30 @@
+<!-- 移动鼠标、移开鼠标这两个鼠标事件 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>onmouseover/out</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <!-- 使用在HTML页面中直接绑定的方式
+    在HTML的 代码中，直接加上如下格式：事件名称=“处理函数名()” -->
+    <input type="image" id="i1" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2217916206,264117579&fm=27&gp=0.jpg" onmouseover="over()" onmouseout="out()">
+    <!-- 编写函数 -->
+    <script>
+        var iw = document.getElementById("i1").width;
+        var ih = document.getElementById("i1").height;
+        function over(){
+            document.getElementById("i1").width = iw*1.4;
+            document.getElementById("i1").height = ih*1.4;
+        }
+        function out(){
+            document.getElementById("i1").width=iw;
+            document.getElementById("i1").height=ih;
+        }
+    </script>
+</body>
+</html>
