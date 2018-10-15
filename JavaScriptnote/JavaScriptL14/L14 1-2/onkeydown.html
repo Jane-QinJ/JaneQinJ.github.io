@@ -1,0 +1,32 @@
+<!-- 按下键盘时发生 onkeydown 
+onkeydown事件是按下键盘的时候就发生的
+这个时候键值没有输出来-->
+<!-- onkeyup 是按键抬起的时候发生的
+这个时候键值已经有了 -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OnekeyDowm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <!-- 编写HTML页面 -->
+    <input id="t1" type="text"/>
+    <script>
+        // 写处理函数
+        function onkeydown(){
+            alert("你按下了键盘")
+        }
+        // 获取元素、绑定事件
+        var t = document.getElementById("t1");
+        // onkeydown就是按下键盘发生的事件，onkeyup是松开键时发生的事件
+        // onkeydown事件发生时，键值还没有输出来。onkeyup事件发生时，键值已经有了。
+        t.addEventListener("keyup",onkeydown,false); //可更改为keyup
+    </script>
+</body>
+
+</html>
