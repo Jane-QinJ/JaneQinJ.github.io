@@ -1,0 +1,68 @@
+div{
+    margin-bottom: 50px;
+}
+
+span{
+    margin-right: 10px;
+}
+
+.jumbotron{
+    background-color: #CECEFF;
+    opacity: .7;
+}
+.jumbotron .glyphicon-send{
+    color: #6AB5FF;
+    font-size:50px;
+}
+.logo{
+    color: #FFC14B;
+    opacity: .8;
+}
+
+ul.nav-pills{
+    width:140px;
+    border-radius: 5px;
+    border:1px solid #ddd;
+    box-shadow: 0 1px 4px rgba(0,0,0,.8);
+}
+
+ul.nav-pills li{
+    margin: 0;
+    font-size: 20px;
+    border-top: 1px solid #ddd;
+}
+
+ul.nav-pills.affix{
+    top: 120px; /*设置导航的位置*/
+}
+
+.bg-blue{
+    background-color: #D7EBEF;
+}
+/* 人物头像 */
+.img-circle{
+    width: 60%;
+    height: 60%;
+}
+/* 头像 */
+.team{
+    border: 10px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.team:hover{
+    border-color:#E1E1E1;
+}
+/* 表单 */
+.col-sm-7 .row{
+    margin-bottom: 10px;
+}
+
+.bg-grey{
+    background-color: #f6f6f6;
+}
+/* 页脚标记 */
+footer span{
+    font-size: 50px;
+    padding-bottom: 50px;
+}
