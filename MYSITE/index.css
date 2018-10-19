@@ -9,8 +9,9 @@ a{
 ul{
     list-style: none;
 }
-
+/* 菜单栏样式 */
 #menuBtn{
+    /* absolute 绝对定位，依据父元素定位，原文档位置不保留 */
     position: absolute;
     top:10px;
     left: 50px;
@@ -26,7 +27,7 @@ ul{
     cursor: pointer;
 }
 #menu{
-    display: none;
+    display: none; /*按钮*/
     font-size: 20px;
     width: 300px;
     height: 280px;
@@ -43,7 +44,7 @@ ul{
 .b1 > ul > li{
     padding: 20px;
 }
-
+/* 轮播图 */
 #text{
     font-size: 35px;
     color: white;
@@ -60,6 +61,7 @@ ul{
 .slider{
     text-align: center;
     margin: 0 auto;
+    /* relative 相对定位 以原文档位置为基础，原文档位置保留 */
     position: relative;
 }
 
