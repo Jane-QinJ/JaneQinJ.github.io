@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>导航栏实例</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/minty/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        <!-- 导航栏 -->
+        <ul id="navigation" class="nav nav-tabs">
+            <li class="nav-item">
+                <a data-toggle="tab" href="#dairy-post-info" class="nav-link">{{navigation[0].content}}</a>
+            </li>
+            <li class="nav-item">
+                <a data-toggle="tab" href="#travel-post-info" class="nav-link">{{navigation[1].content}}</a>
+            </li>
+            <li class="nav-item">
+                <a data-toggle="tab" href="#pics-post-info" class="nav-link">{{navigation[2].content}}</a>
+            </li>
+        </ul>
+
+    </div>
+    <script>
+        var contentApp = new Vue({
+            el:"#content",
+            data:{
+                navigation:[
+                    {
+                        content: "日记",
+                    },
+                    {
+                        content:"游记",
+                    },
+                    {
+                        content:"照片集"
+                    }
+                ],
+            }
+        })
+    </script>
+</body>
+</html>

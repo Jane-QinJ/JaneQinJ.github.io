@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+        <title>Vue的第一个实例</title>
+        <link rel="stylesheet" href="index.css">
+        <!-- 引入Vue -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+            <!-- v-model 双向绑定 -->
+            <input type="text" v-model="message">
+            <!-- {{插入的数值}} 数据绑定 -->
+            <h1>我想告诉你：{{message}}</h1>
+            <h2 v-html="message">这里的内容不会显示</h2>
+            <!-- v-bind 简写为 :  -->
+            <div :style="{color:yanse}">Vue is great.</div>
+           <a v-bind:href="url">click</a>
+           <p>{{21/12}}</p>
+           <p>{{leave ? 'TRUE' : 'FALSE'}}</p>
+           <p>{{ message.toUpperCase()}}</p>
+
+           <p v-if="show">显示元素</p>
+           <!-- v-on:click给元素绑定点击事件 -->
+           <!-- v-on 简写为 @ -->
+           <button @click="change">点击隐藏</button>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>
