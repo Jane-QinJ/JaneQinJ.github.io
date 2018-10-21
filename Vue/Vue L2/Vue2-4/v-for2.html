@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V-for</title>
+     <!-- 引入Vue -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-for指令还可以用第二个别名输出数组的索引。 -->
+        <div v-for="(loop,index) in contact">
+            <h1>{{index}}.{{loop.message}}</h1>
+        </div>
+        <!-- 输出对象的属性 value
+        引入第二个别名——属性名(key)。-->
+        <!-- 可以引入第三个别名——索引。 -->
+        <div v-for="(value,key,index) in studentAge">
+            <h1>{{index}}.{{key}}'s age is {{value}}.</h1>
+        </div>
+    </div>
+
+    <script>
+        var root = new Vue({
+            el:"#app",
+            data:{
+                contact:[
+                    {message:'First'},
+                    {message:'Second'}
+                ],
+                studentAge:{
+                    Tom: 18,
+                    Jerry:17,
+                    HanMeiMei:12,
+                }
+            },
+        })
+    </script>
+</body>
+</html>
