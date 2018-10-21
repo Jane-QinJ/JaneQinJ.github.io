@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>个人信息栏实例</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/minty/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+        <style>
+            .imgbox{
+                width: 200px;
+                height: 200px;
+                border-radius: 50%;
+                /* 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。
+                背景图像的某些部分也许无法显示在背景定位区域中。 */
+                background-size: cover;
+                background-position: top center;
+                background-image:url('https://resource.bcgame-face2face.haorenao.cn/992e48e80887364b93e334e133ffd4e1_d.jpg-634x952');
+            }
+
+            #info-box{
+                position: absolute;
+                top:0px;
+                left:0;
+                bottom:0;
+                width:300px;
+                overflow-x:hidden;
+                overflow-y:auto;
+                z-index:100;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="info-box" class="card" style="background-image: url('https://static1.bcjiaoyu.com/39de4af0b42ec67bbb9f9003ff6fcfb6_q.jpeg-767x1499');">
+            <center>
+                <div class="card-body">
+                    <h2 name="name" style="color:black">{{name}}</h2>
+                    <div class="imgbox"></div>
+                    <br/>
+                    <div name="info" style="color:black">
+                        <p>{{info[0]}}</p>
+                        <p>{{info[1]}}</p>
+                        <p>{{info[2]}}</p>
+                    </div>
+
+                    <a v-bind:href="contact.adr">
+                        <!-- contact['pic'] 字典元素的查找方式 -->
+                        <img v-bind:src="contact.pic">
+                    </a>
+                </div>
+            </center>   
+        </div>
+
+        <script>
+            var infoBoxApp = new Vue({
+                el:"#info-box",
+                data:{
+                    name:"Alex",
+                    // 数组
+                    info:["一直都很喜欢编程的Alex","正在努力学习编程的Alex","最后会变得很厉害的Alex!"],
+                    // 字典
+                    contact:{
+                        adr:"https://www.weibo.com",
+                        pic:"https://www.easyicon.net/download/png/1164508/40/",
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

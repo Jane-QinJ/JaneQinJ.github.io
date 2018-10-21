@@ -13,14 +13,17 @@
 <body>
     <div id="content">
         <!-- 日记正文 -->
-        <div id="dairy-post-info" class="jumbotron">
-            <h2 name="post-title">
-                <span name="date" class="display-3 text-primary">{{dairy[0].date}}</span>
-                <span name="title">{{dairy[0].title}}</span>
-            </h2>
-            <p class="lead">{{dairy[0].ins}}</p>
-            <hr class="my-4">
-            <p>{{dairy[0].content}}</p>
+        <div id="dairy-post-info" >
+            <!-- v-for指令 渲染列表 数组元素两个，生成两个列表 -->
+            <div v-for="item in dairy" class="jumbotron">
+                <h2 name="post-title">
+                    <span name="date" class="display-3 text-primary">{{item.date}}</span>
+                    <span name="title">{{item.title}}</span>
+                </h2>
+                <p class="lead">{{item.ins}}</p>
+                <hr class="my-4">
+                <p>{{item.content}}</p>
+            </div>
         </div>
     </div>
 
@@ -30,11 +33,18 @@
             data:{
                 dairy:[
                     {
-                        date:"2018/7/28",
+                        date:"2018/7/30",
                         title:"学习Vue.js的第一天",
                         ins:"Inscription",
                         content:"很容易上手的Vue.js"
+                    },
+                    {
+                        date:"2018/07/31",
+                        title:"学习Vue.js的第二天",
+                        ins:"lalala",
+                        content:"好好学习 天天向上"
                     }
+                    
                 ],
             }
         })
