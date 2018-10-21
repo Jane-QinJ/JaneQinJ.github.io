@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>照片集</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/minty/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="content">
+        <!-- 图片集 -->
+
+        <div id="pics-post-info" class="container">
+            <div class="row">
+                <!-- 栅格系统，实现三个图片一换行
+                    v-for列表渲染，有五个元素，循环五次，渲染五个图片格式，item为数组中元素（键值对组成） -->
+                <div class="col-md-4" v-for="item in pics">
+                    <div class="card">
+                        <img class="card-img" v-bind:src="item.img" height=300 alt="Card image">
+                        <div class="card-img-overlay" style="color:azure">
+                            <h4 class="card-title">{{item.title}}</h4>
+                            <p class="card-text">{{item.content}}</p>
+                            <p class="card-text" style="color:azure">
+                                <small class="text-muted">{{item.date}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        var contentApp = new Vue({
+            el: "#content",
+            data: {
+                pics: [
+                    {
+                        img: "https://images.unsplash.com/photo-1532714845903-d7b2a053e92b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=85fe6e18e27b3c748112641fd0bcfb12&auto=format&fit=crop&w=500&q=60",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+                    {
+                        img: "https://cdn.pixabay.com/photo/2018/05/11/23/45/highway-3392100__340.jpg",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+                    {
+                        img: "https://cdn.pixabay.com/photo/2018/05/30/16/23/fruit-3441830__340.jpg",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+                    {
+                        img: "https://cdn.pixabay.com/photo/2018/06/04/23/42/raspberry-3454504_1280.jpg",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+                    {
+                        img: "https://cdn.pixabay.com/photo/2018/07/14/22/53/currants-3538617_1280.jpg",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+
+                ],
+            }
+        })
+    </script>
+</body>
+
+</html>
