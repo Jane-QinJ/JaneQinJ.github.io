@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-euqiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>V-bind ex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+     <!-- 引入Vue -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 当isTrue的取值为真时，<div>就具有active这个属性；取值为假时，就不具有。 -->
+        <div v-bind:class="{active: isTrue, others:isFalse}">可以看得见</div>
+        <!-- v-bind:class指令可以与普通的class属性共存。 -->
+        <div v-bind:class="{active:isTrue}" class="own">可以看得见2</div>
+        <!-- 直接绑定数据中的对象 -->
+        <div v-bind:class="classObject">可以看得见3</div>
+        <!-- 数组语法 给v-bind:class传递一个数组，以拥有一个class列表 -->
+        <div v-bind:class="[classOne,classTwo]">数组语法</div>
+        <div v-bind:class="[{acitve:isTrue},classTwo]">数组语法2</div>
+        <!-- 绑定内联样式  
+            对象语法。给v-bind:style设置一个对象，可以动态地切换样式 -->
+        <div v-bind:style="{color: activeColor,fontSize:activeSize}">内联样式</div>
+        <!-- 直接绑定一个样式对象，从而简明易懂 -->
+        <div v-bind:style="styleObject">内联样式2</div>
+        <!-- 数组语法。给v-bind:style传递一个数组，让这个元素拥有多个样式 -->
+        <div v-bind:style="[firstStyles,secondStyles]">内联样式3</div>
+    </div>
+
+    <script>
+        var navigationApp = new Vue({
+            el:"#app",
+            data:{
+                activeColor:"red",
+                activeSize:"21px",
+                styleObject:{
+                    color:"blue",
+                    fontSize:"18px",
+                },
+                firstStyles:{
+                    color:"green",
+                },
+                secondStyles:{
+                    fontSize:"21px",
+                },
+                classOne:"first",
+                classTwo:"second",
+                isTrue:true,
+                isFalse:false,
+                classObject: {
+                    class1: true,
+                    class2: true,
+                }
+            }
+        })
+    </script>
+</body>
+</html>
