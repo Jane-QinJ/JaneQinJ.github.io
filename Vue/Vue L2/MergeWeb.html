@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>L2-网页合并</title>
+    <!-- bootstrap为4.1.2版本样式 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/minty/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        #content {
+            position: absolute;
+            top: 0px;
+            left: 300px;
+            bottom: 0;
+            right: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .imgbox {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            /* 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。
+                背景图像的某些部分也许无法显示在背景定位区域中。 */
+            background-size: cover;
+            background-position: top center;
+            background-image: url('https://resource.bcgame-face2face.haorenao.cn/992e48e80887364b93e334e133ffd4e1_d.jpg-634x952');
+        }
+
+        #info-box {
+            position: absolute;
+            top: 0px;
+            left: 0;
+            bottom: 0;
+            width: 300px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="info-box" class="card" style="background-image: url('https://static1.bcjiaoyu.com/39de4af0b42ec67bbb9f9003ff6fcfb6_q.jpeg-767x1499');">
+        <center>
+            <div class="card-body">
+                <h2 name="name" style="color:black">{{name}}</h2>
+                <div class="imgbox"></div>
+                <br />
+                <div name="info" style="color:black">
+                    <p>{{info[0]}}</p>
+                    <p>{{info[1]}}</p>
+                    <p>{{info[2]}}</p>
+                </div>
+
+                <a v-bind:href="contact.adr">
+                    <!-- contact['pic'] 字典元素的查找方式 -->
+                    <img v-bind:src="contact.pic">
+                </a>
+            </div>
+        </center>
+    </div>
+
+    <div id="content">
+        <!-- 导航栏 -->
+        <ul id="navigation" class="nav nav-tabs">
+            <!-- v-for遍历 
+            数组中有三个元素，遍历渲染三次 生成三个li元素-->
+            <li class="nav-item" v-for="item in navigation">
+                <!-- data-toggle='tab'激活导航栏 -->
+                <a data-toggle="tab" v-bind:href="item.href" class="nav-link">{{item.content}}</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <!-- 用于储存可切换的页面 -->
+            <!-- 日记正文 -->
+            <div id="dairy-post-info" class="tab-pane active show">
+                <!-- v-for指令 渲染列表 数组元素两个，生成两个列表 -->
+                <div v-for="item in dairy" class="jumbotron">
+                    <h2 name="post-title">
+                        <span name="date" class="display-3 text-primary">{{item.date}}</span>
+                        <span name="title">{{item.title}}</span>
+                    </h2>
+                    <p class="lead">{{item.ins}}</p>
+                    <hr class="my-4">
+                    <p>{{item.content}}</p>
+                </div>
+            </div>
+
+            <!-- 练习实例/游记 -->
+            <div id="travel-post-info" class="container-fluid tab-pane">
+                <!-- v-for指令 渲染列表 数组中有两个元素 循环两次 item值数组中元素（键值对）-->
+                <div v-for="item in travel" class="jumbotron">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <img height="300" width="400" v-bind:src="item.img">
+                        </div>
+                        <div class="col-md-7">
+                            <h2 name="post-title">
+                                <span name="date" class="display-3 text-primary">{{item.date}}</span>
+                                <br>
+                                <span name="title">{{item.title}}</span>
+                            </h2>
+                            <p class="lead">{{item.ins}}</p>
+                            <hr class="my-4">
+                            <p>{{item.content}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 图片集 -->
+
+            <div id="pics-post-info" class="container tab-pane">
+                <div class="row">
+                    <!-- 栅格系统，实现三个图片一换行
+                        v-for列表渲染，有五个元素，循环五次，渲染五个图片格式，item为数组中元素（键值对组成） -->
+                    <div class="col-md-4" v-for="item in pics">
+                        <div class="card">
+                            <img class="card-img" v-bind:src="item.img" height=300 alt="Card image">
+                            <div class="card-img-overlay" style="color:azure">
+                                <h4 class="card-title">{{item.title}}</h4>
+                                <p class="card-text">{{item.content}}</p>
+                                <p class="card-text" style="color:azure">
+                                    <small class="text-muted">{{item.date}}</small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        var infoBoxApp = new Vue({
+            el: "#info-box",
+            data: {
+                name: "Alex",
+                // 数组
+                info: ["一直都很喜欢编程的Alex", "正在努力学习编程的Alex", "最后会变得很厉害的Alex!"],
+                // 字典
+                contact: {
+                    adr: "https://www.weibo.com",
+                    pic: "https://www.easyicon.net/download/png/1164508/40/",
+                }
+            }
+        });
+
+        var contentApp = new Vue({
+            el: "#content",
+            data: {
+                navigation: [
+                    {
+                        content: "日记",
+                        href: "#dairy-post-info",
+                    },
+                    {
+                        content: "游记",
+                        href: "#travel-post-info",
+                    },
+                    {
+                        content: "照片集",
+                        href: "#pics-post-info",
+                    }
+                ],
+                dairy: [
+                    {
+                        date: "2018/7/30",
+                        title: "学习Vue.js的第一天",
+                        ins: "Inscription",
+                        content: "很容易上手的Vue.js"
+                    },
+                    {
+                        date: "2018/07/31",
+                        title: "学习Vue.js的第二天",
+                        ins: "lalala",
+                        content: "好好学习 天天向上"
+                    }
+
+                ],
+                travel: [
+                    {
+                        img: "https://cdn.pixabay.com/photo/2017/12/03/17/30/alley-2995354_1280.jpg",
+                        date: "2018/07/30",
+                        title: "Travel around world",
+                        ins: "Inscription",
+                        content: "Great time!"
+                    },
+                    {
+                        img: "https://static1.bcjiaoyu.com/b3a608bf2b85a75ece602642f19b3f1e_d.jpg-1042x703",
+                        date: "2018/07/31",
+                        title: "Travel around world",
+                        ins: "Inscription",
+                        content: "What a great time!"
+                    },
+                ],
+                pics: [
+                    {
+                        img: "https://images.unsplash.com/photo-1532714845903-d7b2a053e92b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=85fe6e18e27b3c748112641fd0bcfb12&auto=format&fit=crop&w=500&q=60",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+                    {
+                        img: "https://cdn.pixabay.com/photo/2018/05/11/23/45/highway-3392100__340.jpg",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+                    {
+                        img: "https://cdn.pixabay.com/photo/2018/05/30/16/23/fruit-3441830__340.jpg",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+                    {
+                        img: "https://cdn.pixabay.com/photo/2018/06/04/23/42/raspberry-3454504_1280.jpg",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+                    {
+                        img: "https://cdn.pixabay.com/photo/2018/07/14/22/53/currants-3538617_1280.jpg",
+                        title: "Pics story",
+                        content: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                        date: "update 2018/07/30"
+                    },
+
+                ],
+            }
+        })
+    </script>
+</body>
+
+</html>
