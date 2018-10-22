@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>V-model表单</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            <!-- 单行文本框数据绑定 -->
+            <input type="text" v-model="message">
+            <p>Message is:{{message}}</p>
+        </h1>
+
+        <h1>
+            <!-- 多行文本框数据绑定 -->
+            <input type="text" v-model="mulMessage">
+            <p>Multiline message is:{{mulMessage}}</p>
+        </h1>
+
+        <h1>
+            <!-- 单个复选框 
+            只是用单个复选框的时候，v-model指令绑定布尔值-->
+            <p>单个复选框：</p>
+            <input type="checkbox" id="checkbox" v-model="checked">
+            <label for="checkbox">{{isClick}}</label>
+        </h1>
+        <br>
+        <h1>
+            <!-- 多个复选框
+                多个复选框时，绑定到同一个数组
+             -->
+            <p>多个复选框：</p>
+            <input type="checkbox" value="jQuery" v-model="checkedNames">
+             <label for="jQuery">jQuer</label>
+            <input type="checkbox" value="Bootstrap" v-model="checkedNames">
+            <label for="Bootstrap">Bootstrap</label>
+            <input type="checkbox" value="Vue" v-model="checkedNames">
+            <label for="Vue">Vue</label>
+            <br>
+            <span>谁是你最爱的课程：{{checkedNames}}</span>
+        </h1>
+
+        <h1>
+            <!-- 单选框 -->
+            <input type="radio" value="HTML" v-model="picked">
+            <label for="HTML">HTML</label>
+            <input type="radio" value="CSS" v-model="picked">
+            <label for="CSS">CSS</label>
+            <input type="radio" value="JavaScript" v-model="picked">
+            <label for="JavaScript">JavaScript</label>
+            <br>
+            <span>只有一个选择：{{picked}}</span>
+        </h1>
+
+        <h1>
+            <!-- 单选选择框 -->
+            <select v-model="selected">
+                <option disabled value="">请选择</option>
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br>
+            <span>Selected:{{selected}}</span>
+        </h1>
+
+        <h1>
+            <!-- 多选选择框 -->
+            <p>多选的选择框</p>
+            <select v-model="mulSelected" multiple style="width:50px;">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+            </select>
+            <br>
+            <span>Selected:{{mulSelected}}</span>
+        </h1>
+    </div>
+
+    <script>
+        var navigationApp = new Vue({
+            el:"#app",
+            data:{
+                message:"",
+                mulMessage:"",
+                checked:false,
+                checkedNames:[],
+                picked:"",
+                selected:"",
+                mulSelected:[]
+            },
+            computed:{
+                isClick:function(){
+                    return this.checked?"别选我":"选我吧"
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>

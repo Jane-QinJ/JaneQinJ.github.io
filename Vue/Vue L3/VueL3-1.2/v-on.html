@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Vue监听v-on</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>
+            <button v-on:click="counter = counter + 1">每次加1的按钮</button>
+            <p>按钮已被点击{{ counter }}次。</p>
+        </h1>
+        <h1>
+            <button v-on:click="greet">Greet</button>
+        </h1>
+        <!-- 含参方法 -->
+        <h1>
+            <button v-on:click="say('含参方法')">含参方法</button>
+        </h1>
+    </div>
+
+    <script>
+        var navigationApp = new Vue({
+            el:"#app",
+            data:{
+                counter:0
+            },
+            methods:{
+                greet:function(){
+                    alert('Hello World!')
+                },
+                say:function(something){
+                    alert(something)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
