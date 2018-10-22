@@ -25,8 +25,8 @@
                 <p>{{item.content}}</p>
             </div>
         </div>
-
-        <button class="btn btn-primary" v-on:click="inputClass='fade modal-dialog active show'">添加日记</button>
+        <!-- v-on:绑定点击方法 -->
+        <button class="btn btn-primary" v-on:click="showInput">添加日记</button>
         <div v-bind:class="inputClass" role="document">
             <!-- 模态框 -->
             <div class="modal-content">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary">提交</button>
+                    <button class="btn btn-primary " v-on:click="submit('dairy')">提交</button>
                 </div>
             </div>
         </div>
@@ -50,6 +50,34 @@
     <script>
         var contentApp = new Vue({
             el: "#content",
+            methods:{
+                showInput:function(event){
+                    // 若点击时未显示，则修改属性使模态框显示
+                    // === 是严格比较。它要求两段内容的数值和类型都必须相同。
+                    if(this.inputClass === "fade modal-dialog"){
+                        this.inputClass="fade modal-dialog active show"
+                    }
+                    // 若点击时模态框显示，则修改属性使其隐藏
+                    else{
+                        this.inputClass = "fade modal-dialog"
+                    }
+                },
+                submit:function(message){
+                    if(message==="dairy"){
+                        // 给日记内容增加新的一项
+                        // 如果直接push的话，push的内容是双向绑定的item属性。之后再改变输入框的内容，网页上的显示也会跟着变。
+                        this.dairy.push(Object.assign({},this.item))  //把this.item里的内容(也就是文本框里的输入)，全部复制保存在一个空元素{ }里。
+                    }
+                    // 把item属性的内容设回初始值，下次直接使用
+                    this.item.date="填入日期"
+                    this.item.title = "标题"
+                    this.item.ins="填入题记。若是添加“照片”，可忽略不填"
+                    this.item.content = "内容"
+                    this.item.img="填入图片地址。若是添加“日记”，可忽略不填"
+                    this.inputClass = "fade modal-dialog"
+
+                }
+            },
             data:{
                 inputClass:"fade modal-dialog",
                 item:{
