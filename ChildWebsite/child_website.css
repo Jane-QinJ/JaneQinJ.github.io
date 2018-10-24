@@ -1,0 +1,103 @@
+/* 重置浏览器默认样式 */
+*{
+    margin:0px;
+    padding:0px;
+    border:0;
+    background:none;
+    z-index:1;
+}
+body{
+    font-family: "微软雅黑";
+    background:#fdfdfd;
+    
+}
+.container{
+    position: relative;
+    margin-left:290px; 
+}
+
+/* 第一屏 导航 */
+#bg{
+    width: 980px;
+    height:627px;
+
+    background-image:url("images/bg.jpg");   
+}
+.nav .text-left{
+    /* 随父级元素改变 */
+    position:absolute;
+    left:150px;
+    top:35px;
+    padding:4px;
+}
+.nav .text-right{
+    position:absolute;
+    left:650px;
+    top:35px;
+    padding:4px;
+}
+
+.nav .span-right{
+    margin-left:30px;
+}
+
+/* 第二屏 */
+
+.pic1{
+    margin-left: 150px;  
+}
+
+/* 三个模块浮动 */
+.block1,.block2,.block3{
+    float:left;
+    top:100px;
+    margin: 10px 10px;
+    width:294px;
+}
+ #news p{
+    color:grey;
+    font-size:15px;
+} 
+#news .p1{
+    margin:30px 0 20px 0 ;
+}
+.block1 .col1{
+    margin:42px 0 0 0;
+}
+.block2 .col2{
+    margin:-19px 0 0 0;
+} 
+/* 第三屏 */
+
+#exhibition .contain{
+    clear:left;
+    background-image: url("images/xinshang.jpg");
+    background-repeat:no-repeat;
+    padding:150px 0px 50px 100px;
+}
+/* 第三屏图片并排 */
+#exhibition .img1,.img2,.img3,.img4{
+    width:13%;
+    margin:50px 20px;  
+}
+
+/* 第四屏 页脚 */
+#footer{
+    clear:left;
+    margin-left:-290px;
+    background-image: url("images/footer_bg.jpg");
+    background-repeat: repeat-x;
+    text-align:center;
+}
+#footer p{
+    padding:30px 0 30px 0;
+    color:white;
+}
+/* 第五屏 二维码 */
+.erweima{
+    position:fixed;
+    top:100px;
+    right:200px;
+}
+/* 使用position会出现缩放元素错位的情况，要先按标准流排放元素（先写完HTML）
+之后设定样式 */
