@@ -84,13 +84,8 @@
             <div id="dairy-post-info" class="tab-pane active show">
                 <!-- v-for指令 渲染列表 数组元素两个，生成两个列表 -->
                 <div v-for="item in dairy" class="jumbotron">
-                    <h2 name="post-title">
-                        <span name="date" class="display-3 text-primary">{{item.date}}</span>
-                        <span name="title">{{item.title}}</span>
-                    </h2>
-                    <p class="lead">{{item.ins}}</p>
-                    <hr class="my-4">
-                    <p>{{item.content}}</p>
+                    <!-- 组件替换 -->
+                    <text-content-component></text-content-component>
                 </div>
             </div>
 
@@ -103,14 +98,8 @@
                             <img height="300" width="400" v-bind:src="item.img">
                         </div>
                         <div class="col-md-7">
-                            <h2 name="post-title">
-                                <span name="date" class="display-3 text-primary">{{item.date}}</span>
-                                <br>
-                                <span name="title">{{item.title}}</span>
-                            </h2>
-                            <p class="lead">{{item.ins}}</p>
-                            <hr class="my-4">
-                            <p>{{item.content}}</p>
+                            <!-- 组件替换 -->
+                            <text-content-component></text-content-component>
                         </div>
                     </div>
                 </div>
@@ -141,6 +130,19 @@
     </div>
 
     <script>
+        Vue.component("text-content-component", {
+            template: `
+                    <div>
+                        <h2 name="post-title">
+                            <span name="date" class="display-3 text-primary">2018/08/01</span>
+                            <span name="title">学习Vue.js</span>
+                        </h2>
+                        <p class="lead">coding my future</p>
+                        <hr class="my-4">
+                        <p>易于上手的Vue.js</p>
+                    </div>`
+        })
+
         var infoBoxApp = new Vue({
             el: "#info-box",
             data: {
