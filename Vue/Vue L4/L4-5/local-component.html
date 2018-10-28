@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个简单的组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <my-component-local id="component-demo3"></my-component-local>
+    <my-component-local id="component-demo4"></my-component-local>
+    <Script>
+        var app3 = new Vue({
+            el:"#component-demo3",
+            components:{
+                'my-component-local':{
+                    data:function(){
+                        return{text:"hello,world[局部]"}
+                    },
+                    template:`<p>{{text}}</p>`
+                }
+            }
+        })
+
+        var app4 = new Vue({
+            el:"#compnent-demo4"
+        })
+    </Script>
+</body>
+</html>
