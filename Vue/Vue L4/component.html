@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个简单的组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!-- 在模板中需要复用组件的地方，写上与组件同名的自定义标签调用组件 -->
+    <my-component id="component-demo1"></my-component>
+    <script>
+        // 用Vue.component()方法定义一个组件，首先要为组件命名
+        Vue.component("my-component",{
+            data:function(){
+                return{text:"hello world"}
+            },
+            // 重用的代码写到组件的template选项
+            template: `<div>{{text}}</div>`
+        })
+        // 创建一个Vue实例，用id把它和模板关联起来
+        // 为模板创建一个Vue实例，告诉浏览器这里需要用Vue.js来解释
+        var app1 = new Vue({
+            el:"#component-demo1"
+        })
+    </script>
+</body>
+</html>
