@@ -85,7 +85,7 @@
                 <!-- v-for指令 渲染列表 数组元素两个，生成两个列表 -->
                 <div v-for="item in dairy" class="jumbotron">
                     <!-- 组件替换 -->
-                    <text-content-component></text-content-component>
+                    <text-content-component v-bind:item="item"></text-content-component>
                 </div>
             </div>
 
@@ -99,7 +99,7 @@
                         </div>
                         <div class="col-md-7">
                             <!-- 组件替换 -->
-                            <text-content-component></text-content-component>
+                            <text-content-component v-bind:item="item"></text-content-component>
                         </div>
                     </div>
                 </div>
@@ -131,15 +131,19 @@
 
     <script>
         Vue.component("text-content-component", {
+            // 添加props选项，实现父级元素向组件内传递数值
+            props:["item"],
             template: `
                     <div>
                         <h2 name="post-title">
-                            <span name="date" class="display-3 text-primary">2018/08/01</span>
-                            <span name="title">学习Vue.js</span>
+                            <span name="date" class="display-3 text-primary">{{item.date}}</span>
+                            <span name="title">{{item.title}}</span>
                         </h2>
-                        <p class="lead">coding my future</p>
+                        <p class="lead">{{item.content}}</p>
                         <hr class="my-4">
-                        <p>易于上手的Vue.js</p>
+                        <div name="post-content">
+                            <p>{{item.content}}</p>
+                        </div>
                     </div>`
         })
 
