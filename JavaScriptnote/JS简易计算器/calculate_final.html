@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculate</title>
+    <style type="text/css">
+        *{
+            border:none;
+            font-family:'Open Sans',sans-serif;
+            margin:0px;
+            padding:0px;
+        }
+
+        h1{
+            color:#495678;
+            font-size: 30px;
+            margin-top:20px;
+            padding-top:50px;
+            display: block;
+            text-align:center;
+            text-decoration:none;
+        }
+
+        form{
+            background-color: #495678;
+            box-shadow: 4px 4px #3d4a65;
+            margin:40px auto;
+            padding: 40px 0 30px 40px;
+            width: 280px;
+        }
+
+        .btn{
+            outline: none;
+            cursor: pointer;
+            font-size:20px;
+            height:45px;
+            margin:5px 0 5px 10px;
+            width:45px;
+        }
+        .btn:first-child{
+            margin:5px 0 5px 10px;
+        }
+        .btn, #display, form{
+            border-radius:25px;
+        }
+        #display{
+            /* 显示框没有外围线 */
+            outline:none;
+            background-color:#98d1dc;
+            /* 阴影是内嵌的 */
+            box-shadow: inset 6px 6px 0px #3facc0;
+            color: #dededc;
+            font-size:20px;
+            height:47px;
+            text-align:right;
+            width: 115px;
+            padding-right:10px;
+            margin-left:5px;
+        }
+        .number{
+            background-color:#72778b;
+            box-shadow: 0 5px #5f6680;
+            color:#dededc;
+        }
+        /* 通过降低垂直方向盒子阴影来达到点击效果 */
+        .number:active{
+            box-shadow: 0 2px #5f6680;
+        }
+
+        .operator{
+            background-color:#dededc;
+            box-shadow:0 5px #bebebe;
+            color:#72778b;
+        }
+        .operator:active{
+            box-shadow:0 2px #bebebe;
+        }
+        .other{
+            background-color:#e3844c;
+            box-shadow: 0 5px #e76a3d;
+            color:#dededc;
+        }
+        .other:active{
+            box-shadow: 0 2px #e76a3d;
+        }
+    </style>
+</head>
+<body>
+    <h1>HTML,CSS,JavaScript计算器</h1>
+    <form>
+        <!-- 清空 -->
+        <input type="button" id="clear" class="btn other" value="C">
+        <!-- 回删 -->
+        <input type="button" id="delete" class="btn other" value="D">
+        <!-- 显示框 -->
+        <input type="text" id="display">
+        <br>
+        <!-- this.value是这个处理函数的参数，this就表示当前的按钮元素 -->
+        <input type="button" class="btn number" value="7" onclick="get(this.value);">
+        <input type="button" class="btn number" value="8" onclick="get(this.value);">
+        <input type="button" class="btn number" value="9" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="+" onclick="get(this.value);">
+        <br>
+        <input type="button" class="btn number" value="4" onclick="get(this.value);">
+        <input type="button" class="btn number" value="5" onclick="get(this.value);">
+        <input type="button" class="btn number" value="6" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="*">
+        <br>
+        <input type="button" class="btn number" value="1" onclick="get(this.value)">
+        <input type="button" class="btn number" value="2" onclick="get(this.value)">
+        <input type="button" class="btn number" value="3" onclick="get(this.value)">
+        <input type="button" class="btn operator" value="-" onclick="get(this.value);">
+        <br>
+        <input type="button" class="btn number" value="0" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="." onclick="get(this.value);">
+        <input type="button" class="btn operator" value="/" onclick="get(this.value);">
+        <!-- 等于 -->
+        <input type="button" class="btn other" id="cal" value="=">
+    </form>
+    <!-- 显示时间 -->
+    <p align="center" id="time"></p>
+
+    <script>
+        // 显示框内的字符显示
+        function get(num){
+            // getElementById获得的元素、元素的值都是字符串类型的数据
+            var shownums = document.getElementById("display");
+            // 用“+”进行拼接，将显示框内原来的内容和执行这次函数的参数内容进行拼接
+            // 现在的内容就是参数name
+            shownums.value+=num;
+        }
+        // 清空
+        // 把空值赋给显示框值
+        var cc = document.getElementById("clear");
+        function clear(){
+            document.getElementById("display").value = "";
+        }
+        // 事件绑定
+        cc.addEventListener("click",clear,false);
+        // 回删
+        var dd = document.getElementById("delete");
+        function backspace(){
+            var shownums = document.getElementById("display");
+            //截取到倒数第二个字符
+            shownums.value = shownums.value.substring(0,shownums.value.length-1);
+        }
+        dd.addEventListener("click",backspace,false);
+        // 计算
+        var re = document.getElementById("cal");
+        function calculates(){
+            var result = 0;
+            result = document.getElementById("display").value;
+            // eval()函数是一个内置函数，可以计算某个字符串（str是number类型可以计算的话）
+            document.getElementById("display").value=eval(result);
+        }
+        re.addEventListener("click",calculates,false);
+
+        // 显示时间
+        function showTime(){
+            var today = new Date();
+            var y = today.getFullYear();
+            var M = today.getMonth()+1;
+            var d = today.getDate();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m=checkTime(m);
+            s=checkTime(s);
+            var week = today.getDay();
+            var w = new Array("星期天","星期一","星期二","星期三","星期四","星期五","星期六")
+                document.getElementById("time").innerHTML=y+"年"+M+"月"+d+"日"+"</br>"+h+":"+m+":"+s+" "+w[week];
+                // 隔一秒调用showTime()自己调用自己，无休止调用  显示时间就可以每隔一秒刷新一次
+                setTimeout("showTime()",1000);
+        }
+        // 数字小于10时，前面添加一个0
+        function checkTime(i){
+            if(i<10){
+                i="0"+i;
+            }
+            return i;
+        }
+        // 当HTML页面都加载完毕后，就去调用显示时间的函数showTime()
+        window.onload=function(){
+            showTime();
+        }
+    </script>
+</body>
+</html>
