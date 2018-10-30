@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>简易计算器</title>
+</head>
+
+<body>
+    <!-- 第一步：先写HTML显示页面 -->
+    <!-- 第一部分:数字输入框 -->
+    第一个数字：<input type="text" id="num1"><br>
+    第二个数字：<input type="text" id="num2"><br>
+    <button id="add">+</button>
+    <button id="sub">-</button>
+    <button id="mul">*</button>
+    <button id="div">÷</button>
+    <br>
+    结果是:<p id="re"></p>
+    <script>
+        //获取运算符元素
+        var addBtn = document.getElementById("add");
+        var subBtn = document.getElementById("sub");
+        var mulBtn = document.getElementById("mul");
+        var divBtn = document.getElementById("div");
+        // 获取输入框中的数字
+        function getInputNums() {
+            var a = document.getElementById('num1').value;
+            var b = document.getElementById("num2").value;
+            a_float = parseFloat(a);
+            b_float = parseFloat(b);
+        }
+        // 获取显示结果的段落元素
+        var show = document.getElementById("re");
+        // 定义一个全局变量用于存放计算结果
+        var result;
+        function sendResult(r) {
+            show.innerHTML = r;
+        }
+        // 第二步：写JS代码，获取HTML元素和写函数
+        function addition(x, y) {
+            return x + y;
+        }
+        function substraction(x, y) {
+            return x - y;
+        }
+        function multiplication(x, y) {
+            return x * y;
+        }
+        function division(x, y) {
+            if (y == 0) {
+                alert("0不能做除数");
+            } else {
+                return x / y;
+            }
+        }
+        // 第三步：将HTML元素 、函数和事件绑定
+        addBtn.onclick = function () {
+            getInputNums();
+            result = addition(a_float, b_float);
+            sendResult(result);
+        }
+        subBtn.onclick = function () {
+            getInputNums();
+            result = substraction(a_float, b_float);
+            sendResult(result);
+        }
+        mulBtn.onclick = function () {
+            getInputNums();
+            result = multiplication(a_float, b_float);
+            sendResult(result);
+        }
+        divBtn.onclick = function () {
+            getInputNums();
+            result = division(a_float, b_float);
+            sendResult(result); 
+        }
+    </script>
+</body>
+
+</html>
