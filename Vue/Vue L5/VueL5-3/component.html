@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个简单的组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/minty/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="component-demo1">
+        <my-component v-bind:com-date="date" v-bind:com-title="title" v-bind:com-content="content"></my-component>
+    </div>
+    <script>
+        Vue.component("myComponent",{
+            props:["comDate","comTitle","comContent"],
+            // 添加methods选项：写一个改变prop属性值的方法:changeProp
+            methods:{
+                changeProp: function(event){
+                    this.comDate = "18/08/07"
+                    this.comTitle = "title"
+                    this.comContent = "content"
+                }
+            },
+            template: `<div>
+                                // 添加一个按钮，按钮发生点击事件时，调用changeProp方法改变prop值
+                            <button type="button" class="btn btn-primary" v-on:click="changeProp">改变组件中的prop的值</button>
+                            <div class="card text-black mb-3" style="max-width:30rem;">
+                                <div class="card-header">{{comDate}}</div>
+                                <div class="card-body">
+                                    <h4 class="card-title">{{comTitle}}</h4>
+                                    <p class="card-text">{{comContent}}</p>
+                                </div>
+                            </div>
+                        </div>`
+        })
+
+        var app1 = new Vue({
+            el:"#component-demo1",
+            data:{
+                date:"2018/08/04",
+                title:"Vue.js L6-4",
+                content:"通过学习理解了组件中的props选项"
+            }
+        })
+    </script>
+</body>
+</html>
