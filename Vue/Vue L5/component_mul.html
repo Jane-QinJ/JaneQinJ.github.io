@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>一个简单的组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/minty/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="component-demo1">
+        <my-component v-bind:my-date="date" v-bind:my-title="title" v-bind:my-content="content"></my-component>
+    </div>
+    <script>
+        Vue.component("my-component",{
+            props:["myDate","myTitle","myContent"],
+            template:`  <div class="card text-black mb-3" style="max-width:30rem;">
+                            <div class="card-header">{{myDate}}</div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{myTitle}}</h4>
+                                <p class="card-text">{{myContent}}</p>
+                            </div>
+                        </div>`
+        })
+
+        var app1 = new Vue({
+            el:"#component-demo1",
+            data:{
+                date:"2018/08/03",
+                title:"Vue.js L6-1",
+                content:"通过学习理解了组件中父子组件的关系"
+            }
+        })
+    </script>
+</body>
+</html>
