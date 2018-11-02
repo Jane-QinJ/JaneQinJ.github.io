@@ -1,0 +1,55 @@
+<!-- 动画 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 设置动画的样式 -->
+    <style>
+        /* 其次，需要在选择器内规定动画的名称和时长  */
+        .bounce-enter-active{
+            animation:bounce-in 1s;
+        }
+        .bounce-leave-active{
+            animation:bounce-in 1s reverse;
+        }
+        /* 使用@keyframes规则创建动画，这个规则用于指定元素从原来的样式变为新样式
+        首先，我们要把@keyframes 绑定到选择器上，不然就没有动画效果
+        
+        最后，在@keyframes 内设置具体的效果*/
+        @keyframes bounce-in{
+            0%{
+                transform:scale(0);
+            }
+            50%{
+                transform:scale(1.5);
+            }
+            100%{
+                transform:scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click="show=!show">
+            动画
+        </button>
+        <transition name="bounce">
+            <p v-if="show">欢迎来到橙旭园</p>
+        </transition>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                show:true
+            }
+        })
+    </script>
+</body>
+</html>
