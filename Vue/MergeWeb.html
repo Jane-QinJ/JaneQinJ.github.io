@@ -11,6 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <!-- 通过link引入第三方动画库 -->
+     <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
     <style>
         #content {
             position: absolute;
@@ -42,6 +44,13 @@
             overflow-x: hidden;
             overflow-y: auto;
             z-index: 100;
+        }
+        /* 设置过渡样式 */
+        .slide-enter-active, .slide-leave-active{
+            transition: opacity .5s;
+        }
+        .slide-enter, .slide-leave-to{
+            opacity: 0;
         }
     </style>
 </head>
@@ -83,10 +92,17 @@
             <!-- 日记正文 -->
             <div id="dairy-post-info" class="tab-pane active show">
                 <!-- v-for指令 渲染列表 数组元素两个，生成两个列表 -->
-                <div v-for="item in dairy" class="jumbotron">
+                <!-- 添加过渡所需的key值（index） -->
+                <div v-for="(item,index) in dairy" class="jumbotron">
                     <!-- 组件替换 -->
-                    <text-content-component v-bind:item="item"></text-content-component>
+                    <!-- 原生过渡 -->
+                    <transition-group name="slide" tag="div">
+                        <!-- 添加对应属性 -->
+                        <text-content-component v-bind:item="item"
+                        v-bind:key="index" v-if="on"></text-content-component>
+                    </transition-group>
                 </div>
+                <button class="btn btn-info" @click="on=!on">过渡</button>
             </div>
 
             <!-- 练习实例/游记 -->
@@ -99,10 +115,17 @@
                         </div>
                         <div class="col-md-7">
                             <!-- 组件替换 -->
-                            <text-content-component v-bind:item="item"></text-content-component>
+                            <!-- 第三方动画库 -->
+                            <transition name="custom" 
+                            enter-active-class="animated tada"
+                            leave-active-class="animated bouceOutRight">
+                                <text-content-component v-bind:item="item"
+                                v-if="isshow"></text-content-component>
+                            </transition>
                         </div>
                     </div>
                 </div>
+                <button class="btn btn-info" @click="isshow=!isshow">动画</button>
             </div>
 
             <!-- 图片集 -->
@@ -112,16 +135,7 @@
                     <!-- 栅格系统，实现三个图片一换行
                         v-for列表渲染，有五个元素，循环五次，渲染五个图片格式，item为数组中元素（键值对组成） -->
                     <div class="col-md-4" v-for="item in pics">
-                        <div class="card">
-                            <img class="card-img" v-bind:src="item.img" height=300 alt="Card image">
-                            <div class="card-img-overlay" style="color:azure">
-                                <h4 class="card-title">{{item.title}}</h4>
-                                <p class="card-text">{{item.content}}</p>
-                                <p class="card-text" style="color:azure">
-                                    <small class="text-muted">{{item.date}}</small>
-                                </p>
-                            </div>
-                        </div>
+                        <pic-content-component v-bind:item="item"></pic-content-component>
                     </div>
                 </div>
             </div>
@@ -146,7 +160,20 @@
                         </div>
                     </div>`
         })
-
+        Vue.component("pic-content-component",{
+            props:["item"],
+            template:`<div class="card">
+                            <img class="card-img" v-bind:src="item.img" height=300 alt="Card image">
+                            <div class="card-img-overlay" style="color:azure">
+                                <h4 class="card-title">{{item.title}}</h4>
+                                <p class="card-text">{{item.content}}</p>
+                                <p class="card-text" style="color:azure">
+                                    <small class="text-muted">{{item.date}}</small>
+                                </p>
+                            </div>
+                        </div>
+                    `
+        })
         var infoBoxApp = new Vue({
             el: "#info-box",
             data: {
@@ -164,6 +191,9 @@
         var contentApp = new Vue({
             el: "#content",
             data: {
+                // 添加对应数据
+                on:true,
+                isshow:true,
                 navigation: [
                     {
                         content: "日记",
