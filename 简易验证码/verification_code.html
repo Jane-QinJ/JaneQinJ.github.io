@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>随机验证码</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+    <style>
+        .panel img{
+            width: 150px;
+        }
+        .panel .panel-body span{
+            font-size: 16px;
+        }
+        #code{
+            margin-top: 18.86px;
+            background-color: #868282;
+            width: 110px;
+            height: 40px;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        #btn{
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <img src="https://www.cxy61.com/index-image/images/One/topImg.png">
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-7">
+                            <span id="textBox">请输入验证码</span>
+                            <input class="form-control" type="text" id="text" maxlength="4">
+                        </div>
+                        <div class="col-md-5">
+                            <div id="code"></div>
+                            <a href="#" id="refresh">看不清，换一张</a>
+                        </div>
+                        <button class="btn btn-warning btn-block" id="btn" type="button">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var checkCode = document.getElementById("code");
+        var btn = document.getElementById("btn");
+        var refresh = document.getElementById("refresh");
+        var code = "";
+
+        //生成随机验证码
+        function setCode(){
+            code = "";
+            var length = 4;
+            var array = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I',
+            'J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+            
+            for(var i = 0; i < length; i++){
+                // math.random()代表[0.0,1.0)这个区间的取值
+                // math.floor()代表获取整数值
+                // index的含义为：随机获取0-35之间的数
+                let index = Math.floor(Math.random() * 36);
+                // code是字符串变量，规定循环次数为4次，code长度为4个字符
+                code += array[index];
+            }
+            // 将随机获取的四个字符赋值给checkCode（通过id获取的div元素）
+            checkCode.innerHTML = code;
+        }
+        // 验证文本框内容与随即验证码
+        function comCode(){
+            // 获取文本框值，将其转为大写
+            var inputCode = document.getElementById("text").value.toUpperCase();
+
+            if(inputCode == 0){  //不输入就提交 弹出提示框
+                alert("请输入验证码");
+            }else if(inputCode != code){ //输入内容错误，提示重新输入 
+                alert("验证码不正确，请重新输入");
+                // 清空文本框元素
+                document.getElementById("text").value = "";
+                // 调用setCode，重新生成验证码
+                setCode();
+            }else{
+                window.open("https://www.cxy61.com");
+            }
+        }
+        // 按下回车，调用comCode，实现提交文本框内容
+        function enterInput(){
+            // 说明按下的是回车键
+            if(event.keyCode == 13){
+                comCode();
+            }
+        }
+        setCode(); //调用函数
+        // 监听鼠标点击事件， 点击提交按钮，执行处理函数comCode
+        btn.addEventListener("click",comCode,false);
+        // 通过鼠标监听事件  实现鼠标点击超链接，跳转页面（相当于刷新）
+        refresh.addEventListener("click",setCode,false);
+        // 添加对键盘按下的监听事件，如果按下键盘就调用enterInput方法
+        document.getElementById("text").addEventListener("keypress",enterInput,false);
+    </script>
+</body>
+</html>
