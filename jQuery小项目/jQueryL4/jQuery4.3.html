@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>表单元素</title>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <style>
+        input{
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+   
+<body>
+    <lable>请输入您的名字：</lable>
+    <input type = 'text'>
+    <!-- <input type='button' value="确定"> -->
+    <div id="result"></div>
+    <script>
+        $(function(){
+            // $(":button").on('click',function(){
+            //   var  $value = $(":text").val();
+            //   $("#result").html('hello '+$value);
+
+            // });
+            $(function(){
+                $(":text").on('change',function(){
+                    var $text = $(":text").val();
+                    $("#result").html('hello '+ $text +'!');
+                })
+            })
+            // $(":text").on('blur',function(){
+            //     $(":text").css({
+            //         'width':'150px',
+            //         'height':'20px',
+            //         'backgound-color':'rgb(223,159,140)'
+            //     })
+            // })
+        });
+    </script>    
+</body>
+</html>
