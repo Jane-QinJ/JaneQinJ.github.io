@@ -1,0 +1,32 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ajax</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <script>
+        $("button").on("click",function(){
+            $.ajax({
+            type:"get", //请求的方式，分为GET和POST
+            url:"", //请求地址
+            data:{}, //向服务器上传的数据
+            success: function(data){
+                //请求成功之后，执行的函数
+            },
+            error:function(err){
+                //请求失败之后，执行的函数
+            },
+            complete:function(msg){
+                //请求完成以后，不管成功或失败都会执行的函数
+            }
+        });
+        })
+        
+    </script>
+</body>
+</html>
