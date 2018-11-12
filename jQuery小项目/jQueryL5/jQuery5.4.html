@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <style type="text/css">
+        #accordion{
+            width:30%;
+        }
+        h3{
+            background:gray;
+        }
+    </style>
+</head>
+<body>
+    <!-- <ul id="ul">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+    </ul> -->
+    <div id="accordion">
+            <h3>部分 1</h3>
+            <div>
+                <p>
+                Happy coding,Study hard, Stay hungrey,Stay foolish
+                </p>
+            </div>
+            <h3>部分 2</h3>
+            <div>
+                <p>
+                Happy coding,Study hard, Stay hungrey,Stay foolish   
+                </p>
+            </div>
+            <h3>部分 3</h3>
+            <div> 
+                <p>
+                Happy coding,Study hard, Stay hungrey,Stay foolish
+                </p>
+            </div>
+            <h3>部分 4</h3>
+            <div>
+                <p>
+                Happy coding,Study hard, Stay hungrey,Stay foolish
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div id="slider"></div>
+    <script>
+        $(function(){
+            // $("#ul").sortable();
+            $("#accordion").accordion();
+            $("#slider").slider();
+        })
+    </script>
+</body>
+</html>
