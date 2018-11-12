@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <title>特效demo</title>
+    <style>
+        body{
+            font-size: 25px;
+
+        }
+        h2{
+            text-align:center;
+        }
+        li{
+            margin: 5px auto;
+            line-height: 50px;
+            padding-left: 50px;
+            background-color:rgb(191,231,243);
+            width:200px;
+            height:50px;
+            border:1px solid black;
+            border-radius:10px;
+            list-style:none;
+        }
+    </style>
+</head>
+<body>
+    <h2>name list</h2>
+    <ul>
+        <li>Annika</li>
+        <li>Chalotte</li>
+        <li>Sophia</li>
+    </ul>
+    <script>
+        $(function(){
+            $("h2").hide().slideDown();
+            var $li = $("li");
+            $li.hide().each(function(index){
+                $(this).delay(700*index).fadeIn(700);
+            });
+            $li.on('click',function(){
+                $(this).fadeOut(700);
+            })
+        })
+    
+    </script>
+</body>
+</html>
