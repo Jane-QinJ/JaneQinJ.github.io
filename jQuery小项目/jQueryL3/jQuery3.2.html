@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>动画特效</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <div id="text">我是谁？我在哪里？我在干什么？</div>
+    <button id="show">点击隐藏</button>
+    <button id="hide">点击显示</button>
+    <button id="toggle">点击切换</button>
+    <script>
+        $(function(){
+            $("#show").on('click',function(){
+                $("#text").hide();
+                
+            });
+            $("#hide").on('click',function(){
+                $("#text").show();
+            });
+            $("#toggle").on('click',function(){
+                $("#text").toggle();
+            })
+        })
+    </script>
+</body>
+</html>
