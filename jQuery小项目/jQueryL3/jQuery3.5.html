@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>自定义特效</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <style>
+        #box{
+            position:absolute;
+            opacity:0.5;
+            width:100px;
+            height:100px;
+            background-color:rgb(104,153,196);
+        }
+    </style>
+</head>
+<body>
+    <button id="left"><<</button>
+    <button id="right">>></button>
+    <div id="box"></div>
+    <script>
+        $(function(){
+            $("#left").on('click',function(){
+                $("#box").animate({
+                    left:'-=50',
+                    opacity:0.7
+                });
+            });
+            $("#right").on('click',function(){
+                $("#box").animate({
+                    left:'+=50',
+                    opacity:0.3
+                });
+            });
+           
+        });
+    </script>
+</body>
+</html>
