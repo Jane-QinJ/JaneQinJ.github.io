@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>动画特效</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <style>
+        #box{
+            /* display: none; */
+            width:200px;
+            height:200px;
+            background:rgb(218,88,88);
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="change">点我有特效</button>
+    <script>
+        $(function(){
+            $("#change").on('click',function(){
+                $("#box").fadeToggle();
+            })
+        })
+    </script>
+
+</body>
+</html>
