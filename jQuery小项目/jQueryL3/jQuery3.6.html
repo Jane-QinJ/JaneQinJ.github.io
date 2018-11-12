@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <title>自定义特效</title>
+    <style>
+        #box{
+            background-color:rgb(82,185,185);
+        }
+    </style>
+</head>
+<body>
+    <button id="start">开始</button>
+    <button id="stop">停止</button>
+    <div id="box"></div>
+    <script>
+        $(function(){
+            $("#start").on('click',function(){
+                $("#box").delay(1000).animate({
+                    width:"500px",
+                    height:"500px",
+                },5000,"linear",function(){
+                    $("#box").remove();
+                });
+            });
+            $("#stop").on('click',function(){
+                $("#box").stop();
+            })
+        });
+    </script>
+</body>
+</html>
