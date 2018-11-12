@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标签页 jQueryUI</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <style>
+        #tabs{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 所有tabs内容都必须在id为tabs的div元素里 -->
+    <div id="tabs">
+        <!-- 添加tabs的索引标签 -->
+        <ul>
+            <!-- 添加href属性，后边填写内容的id -->
+            <li><a href="#tabs-1">标签1</a></li>
+            <li><a href="#tabs-2">标签2</a></li>
+            <li><a href="#tabs-3">标签3</a></li>
+        </ul>
+        <div id="tabs-1">
+            <p>这里是标签1的内容</p>
+            <ul>
+                <li>辣子鸡</li>
+                <li>冷吃兔</li>
+                <li>甜皮鸭</li>
+            </ul>
+        </div>
+        <div id="tabs-2">
+            <p>这里是标签2的内容</p>
+
+        </div>
+        <div id="tabs-3">
+            <p>这里是标签3的内容</p>
+        </div>
+    </div>
+    <!-- 添加tabs()方法 -->
+    <script>
+        $(function(){
+            $("#tabs").tabs();
+        });
+    </script>
+</body>
+</html>
