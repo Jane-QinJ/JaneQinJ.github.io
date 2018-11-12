@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <div id="div">文字显示的地方</div>
+    <button>点击更换文字</button>
+    <script>
+        $("button").on('click',function(){
+            $.ajax({
+                type: "get", //请求的方式，分为GET和POST
+                url: "https:你好//resource.bcgame-face2face.haorenao.cn/cxy/example/test.json", //请求地址
+                data:{},
+                success: function(data){
+                    alert(JSON.stringify(data))
+                    $("#div").html(JSON.stringify(data))
+                },
+                error: function(err){
+                    alert('yes')
+                },
+                complete:function(msg){
+                    alert('complete')
+                }
+            });
+        })
+    </script>
+</body>
+</html>
