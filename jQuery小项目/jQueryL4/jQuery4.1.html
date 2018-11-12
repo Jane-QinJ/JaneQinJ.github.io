@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <title>筛选元素</title>
+    <style>
+        h2{
+            margin-left:50px;
+        }
+        li{
+            width:120px;
+            list-style:none;
+        }
+    </style>
+</head>
+<body>
+    <h2>夜雨寄北</h2>
+    <ul>
+        <li>君问归期未有期</li>
+        <li>巴山夜雨涨秋池</li>
+        <li class="favorite">何当共剪西窗烛</li>
+        <li class="favorite">却话巴山夜雨时</li>
+    </ul>
+    <script>
+        $(function(){
+            $("li:not(.favorite)").css("background-color","yellow");
+            
+        })
+    </script>
+</body>
+</html>
