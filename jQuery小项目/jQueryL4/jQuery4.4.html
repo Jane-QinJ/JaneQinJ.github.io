@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>表单方法和事件</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+</head>
+<body>
+    <label >请输入用户名：</label>
+    <input type = "text" name = "username">
+    <br/>
+    <label for="password">请输入密码：</label>
+    <input type="password" name="password">
+    <br/>
+    <input type="submit" value="确认">
+    <script>
+        $(function(){
+            $(":submit").on('click',function(){
+                alert("验证通过");
+            })
+        })
+    </script>
+</body>
+</html>
