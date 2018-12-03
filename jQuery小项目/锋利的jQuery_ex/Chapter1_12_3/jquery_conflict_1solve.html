@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../src/jquery.js"></script>
+</head>
+<body>
+    <p>click</p>
+    <script>
+        jQuery.noConflict();   //将变量$的控制权让渡给其他库
+        jQuery(function($){   //使用jQuery设定页面加载时执行的函数
+            $("p").click(function(){
+                alert($(this).text());  //在函数内部继续使用$()方法
+            })
+
+        })
+    </script>
+</body>
+</html>
