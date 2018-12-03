@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../src/jquery.js"></script>
+</head>
+<body>
+    <input type="checkbox" id="cr"><label for="cr">我已经阅读了上面制度</label>
+    <p>click</p>
+
+    <script >
+        // $只是jQuery的缩写
+        jQuery(document).ready(function(){   //等待DOM加载完毕
+            var $cr = $("#cr");         //jQuery对象   
+            var cr = $cr.get(0);            //jQuery转为DOM对象，或者$cr.get(0)
+            //若想将DOM对象转为jQuery对象，只需用$()把DOM对象包起来
+            $cr.click(function(){
+                if(cr.checked){
+                    alert("感谢您的支持！你可以继续操作");
+                }
+            })
+        })
+        // jquery中可以编写多个ready方法， JavaScript中的window.onload只能编写一个
+        $(document).ready(function(){
+            var $cr = $("#cr");   //jQuery对象
+            $cr.click(function(){
+                // is(":checked")是jQuery中的方法，判断jQuery对象是否被选中，返回boolean值
+                if($cr.is(":checked")){    //jQuery方式判断
+                    alert("Thanks for your support, you can continue to operate ");
+
+                }
+            })
+        })
+
+       //解决jQuery和其他库冲突
+        var $j =jQuery.noConflict(); //自定义一个快捷方式
+        $j(function(){
+            $j("p").click(function(){
+                alert($(this).text());
+            })
+        })
+        
+    </script>
+</body>
+</html>
