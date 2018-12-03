@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../src/jquery.js"></script>
+</head>
+<body>
+   
+    <button>click</button>
+
+    <script >
+      
+       //解决jQuery和其他库冲突
+       //自定义一个快捷方式
+       var $j =jQuery.noConflict(); 
+        $j(function(){
+            $j("button").click(function(){
+                alert($j(this).text());
+            })
+        })
+        
+
+    </script>
+</body>
+</html>
