@@ -1,0 +1,40 @@
+<!-- 使用JS方法 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../src/jquery.js"></script>
+</head>
+<body>
+    <table id="tb">
+        <tbody>
+            <tr>
+                <td>第一行</td>
+                <td>第一行</td>
+            </tr>
+            <tr>
+                <td>Second</td>
+                <td>Second</td>
+            </tr>
+            <tr>
+                <td>Third</td>
+                <td>Third</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        var item = document.getElementById("tb"); //获取id为tb的元素【table】
+        var tbody = item.getElementsByTagName("tbody")[0];  //获取表格的第一个tbody元素
+        var trs = tbody.getElementsByTagName("tr");  //获取tbody元素下所有的tr
+        for(var i=0; i<trs.length; i++){
+            if(i%2==0){
+                trs[i].style.backgroundColor = "#888"; //改变符合条件的tr元素的背景色
+            }
+        }
+    </script>
+</body>
+</html>
